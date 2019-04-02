@@ -117,7 +117,7 @@ function getParameterByName(name) {
 }
 
 
-function last_fm_calculate_apisig(key,token,sessio){
+/*function last_fm_calculate_apisig(key,token,sessio){
 
     //Crec que només necessitem apikey, token i secret i no necessitem params, els podem treure de sessionStorage
     //Calcula l'apiSig a partir dels valors d'abans...
@@ -150,7 +150,7 @@ function last_fm_calculate_apisig(key,token,sessio){
       so['api_sig'] = hashed_sec; // Correct when calculated elsewhere.
       //return so['api_sig']; // Returns signed POSTable object
       console.log(so['api_sig']);
-}
+}*/
 
 function calcularsig(key,token,sessio,secret){
 
