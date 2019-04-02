@@ -46,7 +46,7 @@ $(document).ready(function () {
 
         //artista.toString();
     
-    $.getJSON("http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country="+pais,dades).success(function (data, textStatus, jqXHR) {
+    $.getJSON("https://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country="+pais,dades).success(function (data, textStatus, jqXHR) {
            try{
         for(var i=0;i<data.topartists.artist.length;i++){
             //$("#artistes").append("<li>"+data.topartists.artist[i].name+"</li>");

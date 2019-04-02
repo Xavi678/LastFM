@@ -58,7 +58,7 @@ $(document).ready(function () {
 
         //artista.toString();
     
-    $.getJSON("http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&autocorrect=1&artist="+artista,dades).success(function(data){
+    $.getJSON("https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&autocorrect=1&artist="+artista,dades).success(function(data){
 
 if(data.error==null){
     $("#error").removeClass().addClass("text-success");

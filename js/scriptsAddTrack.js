@@ -37,7 +37,7 @@ $(document).ready(function () {
             }
         });*/
 
-        $.post( "http://ws.audioscrobbler.com/2.0/", dades)
+        $.post( "https://ws.audioscrobbler.com/2.0/", dades)
   .done(function( data ) {
     $("#loved").children().remove();
    $('track',data).each(function(){
