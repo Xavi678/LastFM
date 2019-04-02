@@ -21,6 +21,7 @@ $(document).ready(function () {
 
    last_fm_calculate_apisig(clau_api,token,'auth.getSession');
     sig=calcularsig(clau_api,token,'methodauth.getSession',apiS);
+    sessionStorage.setItem("api_sig",sig);
     var headers={
         api_key: clau_api,
         token: token,

@@ -26,16 +26,35 @@
 
 
   <div class="container">
-        <h1>Exercici Last FM</h1>
-    País:  <input id="pais" type="text" >
-      <button id="boto" type="button">Enviar</button>
- <h3>Artsistes Per País</h3>
-   <ul id="artistes">
+    <h1 class="text-center page-header">Exercici Last FM</h1>
+    <p class="well">En aquesta pàgina pots buscar els artistes més importants per cada país</p>
+    
+    <div id="grup" class="input-group">
+      <select id="pais"  class="form-control">
+        
+        
+    </select>
+    <div class="input-group-addon" style="border-left: 0; border-right: 0;">Número d'Elements: <select name="" id="elements" >
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="15">15</option>
+      <option value="20">20</option>
+      <option value="25">25</option>
+    </select></div>
+      <span class="input-group-btn">
+        <button id="boto" type="button" class="btn btn-default">Busca</button>
+      </span>
+    </div>
+    <br>
+    <div id="error" ></div>
+    <a class="btn btn-primary btn-klg" href="main.html">Tornar</a>
+    
+ 
+<h3>Albums</h3>
+<ul id="artistes">
 
-   </ul>
-   <a href="main.html" class="btn btn-primary">Tornar</a>
-  </div>
-
+</ul>
+</div>
  
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -44,6 +63,7 @@
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
   <script src="js/scriptArtistesPais.js"></script>
+  <script src="js/footer.js"></script>
   
  
  

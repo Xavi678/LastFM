@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Artistes</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/estils.css" rel="stylesheet">
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+
+
+  <div class="container">
+    <h1 class="text-center page-header">Exercici Last FM</h1>
+    <p class="well">En aquesta pàgina pots buscar les últimes cançons afegides per un usuari</p>
+    
+    <div id="grup" class="input-group">
+      
+      
+            <input id="user" type="text" class="form-control" placeholder="Nom d'un usuari....">
+      
+            <div class="input-group-addon" style="border-left: 0; border-right: 0;">Número d'Elements: <select name="" id="elements" >
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+            </select></div>
+            
+            
+        
+   
+
+      <span class="input-group-btn">
+        <button id="afegir" type="button" class="btn btn-default">Busca</button>
+      </span>
+    
+    </div>
+    <br>
+    <div id="error" ></div>
+    <a class="btn btn-primary btn-klg" href="main.html">Tornar</a>
+    
+ <h2>Cançons Preferides</h2>
+<div id="loved"></div>
+</div>
+
+ 
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/constant.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/scriptsAddTrack.js"></script>
+  <script src="js/footer.js"></script>
+  
+ 
+ 
+
+
+</body>
+
+</html>

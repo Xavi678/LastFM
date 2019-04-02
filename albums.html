@@ -30,11 +30,23 @@
         <p class="well">En aquesta pàgina pots buscar els 10 albums més importants d'un artista</p>
         
         <div id="grup" class="input-group">
-          <input type="text" class="form-control" id="nom" placeholder="Introdueix el nom d'un Artista...">
+          <input type="text" class="form-control" id="nom" placeholder="Introdueix el nom d'un Artista..." pattern="[a-zA-Z0-9-]+">
+         
+          <div class="input-group-addon" style="border-left: 0; border-right: 0;">Número d'Elements: <select name="" id="elements" >
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+          </select></div>
+         
           <span class="input-group-btn">
             <button id="boto" type="button" class="btn btn-default">Busca</button>
           </span>
         </div>
+        <br>
+        <div id="error" ></div>
+        <a class="btn btn-primary btn-klg" href="main.html">Tornar</a>
         
      
  <h3>Albums</h3>
@@ -50,7 +62,7 @@
   <script src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="./js/md5.min.js"></script>
   <script src="js/scriptAlbums.js"></script>
-  
+  <script src="js/footer.js"></script>
  
   
  
