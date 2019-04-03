@@ -11,6 +11,7 @@
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/estils.css" rel="stylesheet">
+  <script type="text/javascript" src="./js/md5.min.js"></script>
 
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -27,34 +28,38 @@
 
   <div class="container">
     <h1 class="text-center page-header">Exercici Last FM</h1>
-    <p class="well">En aquesta pàgina pots buscar els artistes més importants per cada país</p>
+    <p class="well">Treure un tag d'una Cançó</p>
     
     <div id="grup" class="input-group">
-      <select id="pais"  class="form-control">
+
+            
+      <div class="input-group-addon" style="border-left: 0; border-right: 0;">Artista</div>
+            
+            <input id="artista" type="text" class="form-control" placeholder="Nom d'un artista">
+      
+            <div class="input-group-addon" style="border-left: 0; border-right: 0;">Album</div>
+
+            <input id="album" type="text" class="form-control" placeholder="Nom d'un track.....">
+
+            <div class="input-group-addon" style="border-left: 0; border-right: 0;">Tag</div>
+
+            <input id="tag" type="text" class="form-control" placeholder="Nom d'un tag.....">
+            
+            
         
-        
-    </select>
-    <div class="input-group-addon" style="border-left: 0; border-right: 0;">Número d'Elements: <select name="" id="elements" >
-      <option value="5">5</option>
-      <option value="10">10</option>
-      <option value="15">15</option>
-      <option value="20">20</option>
-      <option value="25">25</option>
-    </select></div>
+   
+
       <span class="input-group-btn">
-        <button id="boto" type="button" class="btn btn-default">Busca</button>
+        <button id="afegir" type="button" class="btn btn-default">Busca</button>
       </span>
+    
     </div>
     <br>
     <div id="error" ></div>
     <a class="btn btn-primary btn-klg" href="main.html">Tornar</a>
     
- 
-<h3>Artistes</h3>
-<ul id="artistes">
+<h2 id="resultat"></h2>
 
-</ul>
-</div>
  
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -62,7 +67,7 @@
   <script type="text/javascript" src="./js/constant.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/scriptArtistesPais.js"></script>
+  <script src="js/borrarTag.js"></script>
   <script src="js/footer.js"></script>
   
  

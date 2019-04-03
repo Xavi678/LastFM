@@ -65,9 +65,11 @@ if(data.error==null){
     $("#error").text("Success!");
     for(var i=0;i<data.topalbums.album.length;i++){
         //$("#albums").append("<li> <img src="+data.topalbums.album[i].image[2]['#text']+"/>"+data.topalbums.album[i].name+"</li><br>");
-
+        if(data.topalbums.album[i].image[2]['#text']!=""){
         $("#albums").append(" <div class='media'>  <div class='media-left'>  <img src="+data.topalbums.album[i].image[2]['#text']+" class='media-object' >  </div> <div class='media-body'>         <h4 class='media-heading'> Títol: "+data.topalbums.album[i].name+"</h4>          <p> <a href="+data.topalbums.album[i].url+" target='blank_'>pàgina web de l'àlbum</a></p> <p> Reproduccions: "+data.topalbums.album[i].playcount+"</p>       </div>     </div>");
-        
+        }else{
+            $("#albums").append(" <div class='media'>  <div class='media-left'>  <img src='imatges/not-found.png' class='media-object' >  </div> <div class='media-body'>         <h4 class='media-heading'> Títol: "+data.topalbums.album[i].name+"</h4>          <p> <a href="+data.topalbums.album[i].url+" target='blank_'>pàgina web de l'àlbum</a></p> <p> Reproduccions: "+data.topalbums.album[i].playcount+"</p>       </div>     </div>");
+        }
         
     }
 }else{

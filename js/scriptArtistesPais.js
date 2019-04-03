@@ -35,6 +35,8 @@ $(document).ready(function () {
 
     $("#boto").click(function () { 
         var dades={
+            method: "geo.gettopartists",
+            country: $("#pais").val(),
             api_key: clau_api,
             format: "json",
             limit: $("#elements").val()
@@ -42,12 +44,55 @@ $(document).ready(function () {
 
         $("#artistes").children().remove();
         
-        var pais=$("#pais").val();
+        //var pais=$("#pais").val();
 
         //artista.toString();
+
+
+        $.ajax({
+            type: "POST",
+            
+            dataType: "json",
+            url: "http://ws.audioscrobbler.com/2.0/",
+            data: dades,
+            success: function (data) {
+                try{
+                    if(data.topartists.artist.length==0){
+                        $("#error").removeClass().addClass("text-success");
+                        $("#error").text("Success! No s'han trobat");  
+                        
+                    }else{
+                for(var i=0;i<data.topartists.artist.length;i++){
+                    //$("#artistes").append("<li>"+data.topartists.artist[i].name+"</li>");
+                    
+                    $("#artistes").append(" <div class='media'>  <div class='media-left'>  <img src="+data.topartists.artist[i].image[2]['#text']+" class='media-object' >  </div> <div class='media-body'>"         
+                    +"<h4 class='media-heading'> Grup: "+data.topartists.artist[i].name+"</h4>          <p> <a href="+data.topartists.artist[i].url+" target='blank_'>pàgina web del grup</a></p> <p> Reproduccions: "+data.topartists.artist[i].listeners+"</p>       </div>     </div>");
+                }
+                $("#error").removeClass().addClass("text-success");
+                $("#error").text("Success!");  
+            }
+                
+                
+
+            }catch(error){
+                error();
+               
+            }
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                $("#error").removeClass().addClass("text-danger");
+                $("#error").text(textStatus+": "+errorThrown+" Hi ha hagut un problema del servidor al obtenir els països");  
+              }
+            
+        });
     
-    $.getJSON("https://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country="+pais,dades).success(function (data, textStatus, jqXHR) {
-           try{
+   /* $.getJSON("https://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country="+pais,dades).success(function (data, textStatus, jqXHR) {
+          /* try{
+
+        }catch(error){
+            $("#error").removeClass().addClass("text-danger");
+            $("#error").text("La petició ha fallat, potser que el país que hagis sel·leccionat no estigui disponible, o bé que hagi fallat els servidor");  
+        }
         for(var i=0;i<data.topartists.artist.length;i++){
             //$("#artistes").append("<li>"+data.topartists.artist[i].name+"</li>");
 
@@ -56,10 +101,7 @@ $(document).ready(function () {
         }
         $("#error").removeClass().addClass("text-success");
         $("#error").text("Success!");  
-    }catch(error){
-        $("#error").removeClass().addClass("text-danger");
-        $("#error").text("La petició ha fallat, potser que el país que hagis sel·leccionat no estigui disponible, o bé que hagi fallat els servidor");  
-    }
+   
 
         }
     ).error(function(jqXHR, textStatus, errorThrown){
@@ -67,9 +109,14 @@ $(document).ready(function () {
         $("#error").text(textStatus+": "+errorThrown+" Hi ha hagut un problema del servidor al obtenir els països");  
     }
 
-    );
+    );*/
 
 });
 });
 
 
+function error(){
+    $("#error").removeClass().addClass("text-danger");
+    $("#error").text("La petició ha fallat, potser que el país que hagis sel·leccionat no estigui disponible, o bé que hagi fallat els servidor");  
+            
+}
