@@ -10,6 +10,8 @@ format: "json"
 $(document).ready(function () {
 
     var token=getParameterByName("token");
+
+    $("#login").click(myLoginFunction);
     
     if(token!=""){
 
@@ -62,7 +64,7 @@ $(document).ready(function () {
             //$("#login").replaceWith("<p class='navbar-brand'>"+nom+"</p>");
             $("#nomUser").html("<span class='glyphicon glyphicon-user'></span> " + localStorage.getItem("nom"));
             //var table="<tr><th>Title</th><th>Artist</th></tr>";
-            
+            $("#login").hide();
             
         }
     });
@@ -92,9 +94,13 @@ $(document).ready(function () {
 // });
     }else if(localStorage.getItem("nom")!="" && localStorage.getItem("nom")!=null){
         $("#nomUser").html("<span class='glyphicon glyphicon-user'></span> "+ localStorage.getItem("nom"));
+        $("#login").hide();
     }else{
-        alert("Per poder entrar primer t'hauràs d'autenticar!!!");
-        window.location="index.html";
+        //alert("Per poder entrar primer t'hauràs d'autenticar!!!");
+        //window.location="index.html";
+
+        //$("#login").html("<span class='glyphicon glyphicon-log-in'></span>");
+        $("#sortir").hide();
     }
 
     $("#sortir").click(function(){
@@ -162,3 +168,19 @@ function calcularsig(key,token,sessio,secret){
 
 // 96f558daf5e1d971c8d804ca9e4a4146
 // 96f558daf5e1d971c8d804ca9e4a4146
+
+
+
+
+function myLoginFunction(){
+/*
+params api_key ( my api key)
+cb the web that goes when user is authenticated relative path ( depends on the server is launched): http://localhost:3000/mainpage.ht*/
+var url;
+
+var url= 'http://www.last.fm/api/auth/?api_key='+clau_api+'&cb='+window.location.href;
+
+
+
+window.location.replace(url);
+}

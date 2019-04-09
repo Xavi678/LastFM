@@ -1,59 +1,50 @@
-
-
 <!DOCTYPE html>
-<html lang="">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Title Page</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<!-- Bootstrap CSS -->
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/estils.css">
-		<script type="text/javascript" src="./js/md5.min.js"></script>
-		 <script type="text/javascript" src="./js/constants.js"></script>
-		 <script type="text/javascript" src="./js/constant.js"></script>
-		
 
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-	</head>
-	<body>
-			
-	
-	<nav class="navbar navbar-inverse">
-		<a class="navbar-brand" href="#">Title</a>
-		<ul class="nav navbar-nav">
-			<li class="active">
-				<a href="#">Home</a>
-			</li>
-			<li>
-				<a href="#">Link</a>
-			</li>
-		</ul>
-	</nav>
-	
-		
-		<div class="container">
-		<div class="jumbotron ">
-			<div class="container">
-				<h1>Last FM</h1>
-				<p>Per poder accedir a la pàgina web primer t'has d'autenticar (fes click al botó on hi posa "Login")</p>
-				<p>
-					<a id="login" class="btn btn-primary btn-lg">Login</a>
-				</p>
-			</div>
-		</div>
-	</div>
+<html>
 
-		<!-- jQuery -->
-		
-		<!-- Bootstrap JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	</body>
+<head>
+   <meta charset="UTF-8">
+   
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/estilsIndex.css"> 
+    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">   
+    <script type="text/javascript" src="./js/md5.min.js"></script>
+</head>
+<body>
+        
+        <nav class="navbar navbar-inverse" role="navigation">
+                
+            <p id="login" class="navbar-brand"><span class='glyphicon glyphicon-log-in'></span> Login</p>
+            <p id="nomUser" class="navbar-brand" ></p>
+            <p id="sortir" class="navbar-brand" ><span class="glyphicon glyphicon-log-out"></span> Sortir</p>
+            
+        </nav>
+        
+    <div class="container">
+           
+          
+           
+    <h1 class="page-header">Index</h1>
+    <div class="index">
+           
+    <a href="albums.html" class="btn btn-default btn-lg btn-block" role="button">Top Albums d'un Artista</a><br>
+    <a href="artistes.html" class="btn btn-default btn-lg btn-block" role="button">Obtenir Millors Artistes Per Cada País</a><br>
+    <a href="love.html" class="btn btn-default btn-lg btn-block" role="button">Cançons preferides d'un Usuari</a><br>
+    <a href="afegir.html" class="btn btn-default btn-lg btn-block" role="button">Afegir una Cançó</a><br>
+    <a href="removetag.html" class="btn btn-default btn-lg btn-block" role="button">Afegir Tags</a><br>
+    <!-- <a href="ajuda.html" class="btn btn-default btn-lg btn-block" role="button">Ajuda</a><br>
+    <a href="credits.html" class="btn btn-default btn-lg btn-block" role="button">Crèdits</a><br>
+    <a href="info.html" class="btn btn-default btn-lg btn-block" role="button">Informació</a><br> -->
+    <!--<a href="login.rar"  class="btn btn-default btn-lg btn-block" role="button">Informació</a><br>-->
+    </div>
+    </div>
+
+<!-- <script src="http://code.jquery.com/jquery.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="./js/constant.js"></script>
+
+<script src="js/script.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
 </html>

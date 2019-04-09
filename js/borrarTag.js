@@ -1,6 +1,12 @@
 $(document).ready(function () {
+    if(localStorage.getItem("nom")==null || localStorage.getItem("nom")==""){
+        window.location.href="/";
+        alert("No estas Loggejat");
+    }
+
     $("#afegir").click(function () { 
 
+     
         var dades={
             method: "album.addTags",
             artist: $("#artista").val(),
