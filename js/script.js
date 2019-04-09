@@ -57,10 +57,10 @@ $(document).ready(function () {
         success: function(xml) {
             var nom=$(xml).find("name").text();
             var key=$(xml).find("key").text();
-            sessionStorage.setItem("nom",nom);
+            localStorage.setItem("nom",nom);
             sessionStorage.setItem("clau",key);
             //$("#login").replaceWith("<p class='navbar-brand'>"+nom+"</p>");
-            $("#nomUser").html("<span class='glyphicon glyphicon-user'></span> " + sessionStorage.getItem("nom"));
+            $("#nomUser").html("<span class='glyphicon glyphicon-user'></span> " + localStorage.getItem("nom"));
             //var table="<tr><th>Title</th><th>Artist</th></tr>";
             
             
@@ -90,16 +90,16 @@ $(document).ready(function () {
 //     );
 
 // });
-    }else if(sessionStorage.getItem("nom")!="" && sessionStorage.getItem("nom")!=null){
-        $("#nomUser").html("<span class='glyphicon glyphicon-user'></span> "+ sessionStorage.getItem("nom"));
+    }else if(localStorage.getItem("nom")!="" && localStorage.getItem("nom")!=null){
+        $("#nomUser").html("<span class='glyphicon glyphicon-user'></span> "+ localStorage.getItem("nom"));
     }else{
         alert("Per poder entrar primer t'hauràs d'autenticar!!!");
         window.location="index.html";
     }
 
     $("#sortir").click(function(){
-        sessionStorage.removeItem("nom");
-        window.location="index.html";
+        localStorage.removeItem("nom");
+        window.location="/";
 
     });
 
