@@ -58,6 +58,7 @@ $(document).ready(function () {
                 url: "http://ws.audioscrobbler.com/2.0/",
                 data: dades,
                 success: function (data) {
+                    $("#error").html("<p class='text-success'>Success</p>");
     
                     //$("#resultat").html("<p class='text-success'>S'ha afegit la Cançó</p>");
                     $("#loved").children().remove();
@@ -74,8 +75,9 @@ $(document).ready(function () {
                 })
                 },
                 error: function (xhr) {
-                    alert(xhr.status);
-                    //$("#resultat").html("<p class='text-danger'>Error: No s'ha afegit la Cançó</p>");
+                    //alert(xhr.status);
+                    $("#loved").children().remove();
+                    $("#error").html("<p class='text-danger'>Error: Aquest usuari no existeix</p>");
                   }
                 
             });

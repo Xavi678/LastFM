@@ -1,4 +1,20 @@
 $(document).ready(function () {
+    if(sessionStorage.getItem("nom")==null || sessionStorage.getItem("nom")==""){
+        //swal("Good job!");
+        //window.location.href="/";
+
+        swal({
+            title: "Error",
+            text: "Primer has d'estar loggejat",
+            icon: "error",
+            closeOnClickOutside: false,
+          }).then(()=>{
+            window.location.href="/";
+          });
+
+        
+        
+    }
     $("#afegir").click(function () { 
 
         var dades={
