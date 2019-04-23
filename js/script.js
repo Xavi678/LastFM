@@ -9,11 +9,13 @@ format: "json"
 
 $(document).ready(function () {
 
+   
+    if(sessionStorage.getItem("nom")==null){
     var token=getParameterByName("token");
-
+    }
     $("#login").click(myLoginFunction);
     
-    if(token!=""){
+    if(token!="" && token!=undefined){
 
     
 
@@ -53,21 +55,31 @@ $(document).ready(function () {
     $.ajax({
         type: "GET",
         url: "http://ws.audioscrobbler.com/2.0/?method=auth.getSession",
-       
+       async: false,
         dataType: "xml",
         data: headers,
         success: function(xml) {
             var nom=$(xml).find("name").text();
             var key=$(xml).find("key").text();
-            localStorage.setItem("nom",nom);
+            sessionStorage.setItem("nom",nom);
             sessionStorage.setItem("clau",key);
             //$("#login").replaceWith("<p class='navbar-brand'>"+nom+"</p>");
-            $("#nomUser").html("<span class='glyphicon glyphicon-user'></span> " + localStorage.getItem("nom"));
+            //$("#nomUser").html("<span class='glyphicon glyphicon-user'></span> " + sessionStorage.getItem("nom"));
             //var table="<tr><th>Title</th><th>Artist</th></tr>";
             $("#login").hide();
-            
+            //swal("Login Successful!", "Ara pots utilitzar funcions que requereixin autenticació", "success");
         }
     });
+
+    //alert(sessionStorage.getItem("nom"));
+    var w={
+        api_key: clau_api,
+        user: sessionStorage.getItem("nom"),
+
+    }
+
+    obtenirImatge(w);
+    
 
     // $.getJSON("http://ws.audioscrobbler.com/2.0/?method=auth.getSessi",onheaders, function(data){
     //     console.log(data.name);
@@ -92,9 +104,17 @@ $(document).ready(function () {
 //     );
 
 // });
-    }else if(localStorage.getItem("nom")!="" && localStorage.getItem("nom")!=null){
-        $("#nomUser").html("<span class='glyphicon glyphicon-user'></span> "+ localStorage.getItem("nom"));
+//swal("Login Successful!", "Ara pots utilitzar funcions que requereixin autenticació", "success");
+    }else if(sessionStorage.getItem("nom")!="" && sessionStorage.getItem("nom")!=null){
+        //$("#nomUser").html("<span class='glyphicon glyphicon-user'></span> "+ sessionStorage.getItem("nom"));
         $("#login").hide();
+        var w={
+            api_key: clau_api,
+            user: sessionStorage.getItem("nom"),
+    
+        }
+    
+        obtenirImatge(w);
     }else{
         //alert("Per poder entrar primer t'hauràs d'autenticar!!!");
         //window.location="index.html";
@@ -104,7 +124,7 @@ $(document).ready(function () {
     }
 
     $("#sortir").click(function(){
-        localStorage.removeItem("nom");
+        sessionStorage.removeItem("nom");
         window.location="/";
 
     });
@@ -176,11 +196,46 @@ function myLoginFunction(){
 /*
 params api_key ( my api key)
 cb the web that goes when user is authenticated relative path ( depends on the server is launched): http://localhost:3000/mainpage.ht*/
-var url;
+//var url;
 
 var url= 'http://www.last.fm/api/auth/?api_key='+clau_api+'&cb='+window.location.href;
 
 
 
 window.location.replace(url);
+}
+
+function obtenirImatge(w){
+    $.ajax({
+        type: "GET",
+        url: "http://ws.audioscrobbler.com/2.0/?method=user.getInfo",
+        async: false,
+       
+        data: w,
+        success: function(xml) {
+            console.log(xml);
+            
+            if($(xml).find('image').first().text()!="" && $(xml).find('image').first().text()!=null ){
+            $("#nomUser").html( "<img  class='img-circle icona ' src="+$(xml).find('image').first().text()+"/>  " +sessionStorage.getItem("nom"));
+            }else{
+                $("#nomUser").html( "<img class='img-circle icona '  src='imatges/default.png'/> " +sessionStorage.getItem("nom"));
+            }
+            /*var nom=$(xml).find("name").text();
+            var key=$(xml).find("key").text();
+            localStorage.setItem("nom",nom);
+            sessionStorage.setItem("clau",key);
+            //$("#login").replaceWith("<p class='navbar-brand'>"+nom+"</p>");
+            $("#nomUser").html("<span class='glyphicon glyphicon-user'></span> " + localStorage.getItem("nom"));
+            //var table="<tr><th>Title</th><th>Artist</th></tr>";
+            $("#login").hide();
+        */
+       
+        
+        },error: function (param) { 
+            alert("error");
+         }
+        
+    });
+
+    
 }

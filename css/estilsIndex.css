@@ -48,12 +48,12 @@ p{
     color: white;
 }
 
-img{
-    margin: 10px;
-    width: 300px;
-    
-}
+
 
 #taula{
    margin: 0 auto;
+}
+
+.icona{
+    width: 50px;
 }

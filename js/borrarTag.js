@@ -1,7 +1,19 @@
 $(document).ready(function () {
-    if(localStorage.getItem("nom")==null || localStorage.getItem("nom")==""){
-        window.location.href="/";
-        alert("No estas Loggejat");
+    if(sessionStorage.getItem("nom")==null || sessionStorage.getItem("nom")==""){
+        //swal("Good job!");
+        //window.location.href="/";
+
+        swal({
+            title: "Error",
+            text: "Primer has d'estar loggejat",
+            icon: "error",
+            closeOnClickOutside: false,
+          }).then(()=>{
+            window.location.href="/";
+          });
+
+        
+        
     }
 
     $("#afegir").click(function () { 
